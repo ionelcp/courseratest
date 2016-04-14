@@ -1,0 +1,172 @@
+body {font-size: 16px;
+	color:#fff;
+	background-color: #bc2e2e;
+	font-family: 'Oxygen', sans-serif;
+}
+
+/* header */
+#header-nav{background-color: #f6b319;
+			border-radius: 0;
+			border: 0;
+
+			}
+
+
+
+
+.navbar-brand{padding-top: 25px;
+}
+
+.navbar-brand{
+	font-family: 'Lora', serif;
+	color: #557c3e;
+	font-size: 1.5em;
+	font-weight: bold;
+	text-shadow: 1px 1px 1px #222;
+	margin-top: 0;
+	margin-bottom: 0;
+	line-height: .75;
+
+}
+
+.navbar-brand a:hover, .navbar-brand a:focus {
+	text-decoration: none;
+
+}
+
+
+
+#nav-list{margin-top: 10px;}
+
+
+#nav-list a{
+	color: #951c49;
+	text-align: center;
+}
+
+#nav-list a:hover{
+	background: #e7e7e7;
+}
+
+
+
+
+
+
+.navbar-header button.navbar-toggle, .navbar-header .icon-bar {
+	border: 1px solid #61122f;
+}
+
+.navbar-header button.navbar-toggle {
+	clear: both;
+	margin-top: -30px;
+}
+
+/* END HEADER */
+
+/* home page */
+
+
+
+#Chicken-tile, #Beef-tile, #Sushi-tile {
+	height: 1000px;
+	width: 100%;
+	margin-bottom: 15px;
+	position: relative;
+	border: 2px solid #3f0c1f;
+	overflow: hidden;
+}
+
+
+
+#Chicken-tile {
+	background: #ccc;
+	color:#000;
+	
+}
+
+#Beef-tile {
+	background: #ccc;
+	color:#000;
+}
+
+#Sushi-tile {	background: #ccc;
+	color:#000;}
+
+#Chicken-tile p, #Beef-tile p, #Sushi-tile p {
+	padding-left: 10px;
+
+}
+
+
+
+
+/* end homepage */
+
+
+
+
+
+
+
+/* Desktop only */
+@media (min-width: 992px)  {
+
+
+		.navbar-brand{
+		padding-top: 5px;
+		height: 90px;
+	}
+	.navbar-brand h1{/* page name */
+		padding-top: 5px;
+		font-size: 3vw;
+
+		}
+
+
+}
+
+/* Tablet only */
+@media (min-width: 768px) and (max-width: 991px) {
+
+	
+
+		.navbar-brand{
+		padding-top: 5px;
+		height: 90px;
+	}
+	.navbar-brand h1{/* page name */
+		padding-top: 5px;
+		font-size: 4vw;
+
+		}
+
+
+	
+}
+
+/* Mobile only */
+@media (max-width: 767px) {
+	.navbar-brand{
+		padding-top: 5px;
+		height: 90px;
+	}
+	.navbar-brand h1{/* page name */
+		padding-top: 5px;
+		font-size: 7vw;
+
+		}
+
+
+
+	#collapsable-nav a {
+		/* collapsed nav menu plyph*/
+		font-size: 1.2em;
+	}
+
+
+	
+
+}
+
+
