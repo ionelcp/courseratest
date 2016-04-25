@@ -60,112 +60,109 @@ var switchMenuToActive = function () {
   }
 };
 
-
-    // On page load (before images or CSS)
+// On page load (before images or CSS)
 document.addEventListener("DOMContentLoaded", function (event) {
+  
+// TODO: STEP 0: Look over the code from 
+// *** start *** 
+// to 
+// *** finish *** 
+// below.
+// We changed this code to retrieve all categories from the server instead of
+// simply requesting home HTML snippet. We now also have another function
+// called buildAndShowHomeHTML that will receive all the categories from the server
+// and process them: choose random category, retrieve home HTML snippet, insert that
+// random category into the home HTML snippet, and then insert that snippet into our
+// main page (index.html).
+//
+// TODO: STEP 1: Substitute [...] below with the *value* of the function buildAndShowHomeHTML, 
+// so it can be called when server responds with the categories data.
 
-    // TODO: STEP 0: Look over the code from 
-    // *** start *** 
-    // to 
-    // *** finish *** 
-    // below.
-    // We changed this code to retrieve all categories from the server instead of
-    // simply requesting home HTML snippet. We now also have another function
-    // called buildAndShowHomeHTML that will receive all the categories from the server
-    // and process them: choose random category, retrieve home HTML snippet, insert that
-    // random category into the home HTML snippet, and then insert that snippet into our
-    // main page (index.html).
-    //
-    // TODO: STEP 1: Substitute [...] below with the *value* of the function buildAndShowHomeHTML, 
-    // so it can be called when server responds with the categories data.
-
-    // *** start ***
-    // On first load, show home view
-    showLoading("#main-content");
-    $ajaxUtils.sendGetRequest(
-      allCategoriesUrl,
-      buildAndShowHomeHTML, // ***** <---- TODO: STEP 1: Substitute [...] ******
-      true); // Explicitely setting the flag to get JSON from server processed into an object literal
+// *** start ***
+// On first load, show home view
+showLoading("#main-content");
+$ajaxUtils.sendGetRequest(
+  allCategoriesUrl, 
+  buildAndShowHomeHTML, // ***** <---- TODO: STEP 1: Substitute [...] ******
+  true); // Explicitely setting the flag to get JSON from server processed into an object literal
 });
-    // *** finish **
+// *** finish **
 
 
-    // Builds HTML for the home page based on categories array
-    // returned from the server.
+// Builds HTML for the home page based on categories array
+// returned from the server.
 var chosenCategoryShortName
 function buildAndShowHomeHTML(categories) {
-
-    // Load home snippet page
-    $ajaxUtils.sendGetRequest(
-      homeHtmlUrl,
-      function (homeHtml) {
+  
+  // Load home snippet page
+  $ajaxUtils.sendGetRequest(
+    homeHtmlUrl,
+    function (homeHtml) {
           chooseRandomCategory(categories);
-          // TODO: STEP 2: Here, call chooseRandomCategory, passing it retrieved 'categories'
-          // Pay attention to what type of data that function returns vs what the chosenCategoryShortName
-          // variable's name implies it expects.
-          // var chosenCategoryShortName = ....
 
+      // TODO: STEP 2: Here, call chooseRandomCategory, passing it retrieved 'categories'
+      // Pay attention to what type of data that function returns vs what the chosenCategoryShortName
+      // variable's name implies it expects.
+      // var chosenCategoryShortName = ....
+      
 
-          // TODO: STEP 3: Substitute {{randomCategoryShortName}} in the home html snippet with the
-          // chosen category from STEP 2. Use existing insertProperty function for that purpose.
-          // Look through this code for an example of how to do use the insertProperty function.
-          // WARNING! You are inserting something that will have to result in a valid Javascript
-          // syntax because the substitution of {{randomCategoryShortName}} becomes an argument
-          // being passed into the $dc.loadMenuItems function. Think about what that argument needs
-          // to look like. For example, a valid call would look something like this:
-          // $dc.loadMenuItems('L')
-          // Hint: you need to surround the chosen category short name with something before inserting
-          // it into the home html snippet.
-          // 
-          // var homeHtmlToInsertIntoMainPage = ....
+      // TODO: STEP 3: Substitute {{randomCategoryShortName}} in the home html snippet with the
+      // chosen category from STEP 2. Use existing insertProperty function for that purpose.
+      // Look through this code for an example of how to do use the insertProperty function.
+      // WARNING! You are inserting something that will have to result in a valid Javascript
+      // syntax because the substitution of {{randomCategoryShortName}} becomes an argument
+      // being passed into the $dc.loadMenuItems function. Think about what that argument needs
+      // to look like. For example, a valid call would look something like this:
+      // $dc.loadMenuItems('L')
+      // Hint: you need to surround the chosen category short name with something before inserting
+      // it into the home html snippet.
+      // 
+      // var homeHtmlToInsertIntoMainPage = ....
+      
           var html = homeHtml;
           var short_name = chosenCategoryShortName;
           console.log(short_name);
           html = insertProperty(html, "randomCategoryShortName", short_name);
-          // TODO: STEP 4: Insert the the produced HTML in STEP 3 into the main page
-          // Use the existing insertHtml function for that purpose. Look through this code for an example
-          // of how to do that. 
-          // ....
-          document.querySelector("#main-content").innerHTML = html;
+
+      // TODO: STEP 4: Insert the the produced HTML in STEP 3 into the main page
+      // Use the existing insertHtml function for that purpose. Look through this code for an example
+      // of how to do that. 
+      // ....
+      document.querySelector("#main-content").innerHTML = html;
       },
-      false); // False here because we are getting just regular HTML from the server, so no need to process JSON.
+    false); // False here because we are getting just regular HTML from the server, so no need to process JSON.
 }
 
 
-    // Given array of category objects, returns a random category object.
-function chooseRandomCategory(categories) {
-    // Choose a random index into the array (from 0 inclusively until array length (exclusively))
-    var randomArrayIndex = Math.floor(Math.random() * categories.length);
+// Given array of category objects, returns a random category object.
+function chooseRandomCategory (categories) {
+  // Choose a random index into the array (from 0 inclusively until array length (exclusively))
+  var randomArrayIndex = Math.floor(Math.random() * categories.length);
 
-    // return category object with that randomArrayIndex
-    chosenCategoryShortName = categories[randomArrayIndex].short_name;
-    return categories[randomArrayIndex];
+  // return category object with that randomArrayIndex
+  return categories[randomArrayIndex];
 }
 
 
-    // Load the menu categories view
+// Load the menu categories view
 dc.loadMenuCategories = function () {
-    showLoading("#main-content");
-    $ajaxUtils.sendGetRequest(
-      allCategoriesUrl,
-      buildAndShowCategoriesHTML);
+  showLoading("#main-content");
+  $ajaxUtils.sendGetRequest(
+    allCategoriesUrl,
+    buildAndShowCategoriesHTML);
 };
 
 
-    // Load the menu items view
-    // 'categoryShort' is a short_name for a category
+// Load the menu items view
+// 'categoryShort' is a short_name for a category
 dc.loadMenuItems = function (categoryShort) {
-    console.log(categoryShort);
-    showLoading("#main-content");
-    $ajaxUtils.sendGetRequest(
-      menuItemsUrl + categoryShort,
-      buildAndShowMenuItemsHTML);
+  showLoading("#main-content");
+  $ajaxUtils.sendGetRequest(
+    menuItemsUrl + categoryShort,
+    buildAndShowMenuItemsHTML);
 };
 
 
-
-
-//x*x*x*x*x**x*x
 // Builds HTML for the categories page based on the data
 // from the server
 function buildAndShowCategoriesHTML (categories) {
@@ -220,7 +217,7 @@ function buildCategoriesViewHtml(categories,
   return finalHtml;
 }
 
-//*x*x*x*x*x*
+
 
 // Builds HTML for the single category page based on the data
 // from the server
@@ -350,3 +347,4 @@ function insertItemPortionName(html,
 global.$dc = dc;
 
 })(window);
+
