@@ -327,7 +327,7 @@ function newCard3 (){
 		document.getElementById('playAgain').style.display = "inline-block";
 
 // end of if winner on next row
-} else if ((totalPlayer == totalHouse)  |  (totalPlayer == 14 && totalHouse == 21)  | (totalPlayer == 21 && totalHouse == 14)) {
+} else if ((totalPlayer == totalHouse)  |  (totalPlayer == 14 && totalHouse == 21)  | (totalPlayer == 21 && totalHouse == 14) | (totalPlayer > 21 && totalHouse >21)) {
 		document.getElementById('newCard').style.display = "none";
 	document.getElementById('Stop').style.display = "none";
 		document.getElementById('communication').innerHTML = "We have a draw!";
@@ -363,7 +363,7 @@ function startGameEvaluation(){
 			document.getElementById('playAgain').style.display = "inline-block";
 
 // end of if winner on next row
-} else if ((totalPlayer == totalHouse)  |  (totalPlayer == 14 && totalHouse == 21)  | (totalPlayer == 21 && totalHouse == 14) | (totalPlayer >= 21 && totalHouse >=21)) {
+} else if ((totalPlayer == totalHouse)  |  (totalPlayer == 14 && totalHouse == 21)  | (totalPlayer == 21 && totalHouse == 14) | (totalPlayer > 21 && totalHouse >21)) {
 		document.getElementById('newCard').style.display = "none";
 	document.getElementById('Stop').style.display = "none";
 	document.getElementById('communication').innerHTML = "We have a draw!";
