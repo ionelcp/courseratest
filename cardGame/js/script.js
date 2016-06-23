@@ -49,7 +49,6 @@ colorRandomTypeHouse1 = "Spades";
 
 // display player card and show hidden house card
 document.getElementById('playerFirstCard').src="images/"+ colorRandomTypePlayer1 + " " + userCard1 +".png";
-document.getElementById('houseFirstCard').src="images/house 0.png";
 
 // check to see if house is satisfied
 
@@ -72,7 +71,6 @@ document.getElementById('houseFirstCard').src="images/"+ colorRandomTypeHouse1 +
 	} else if (colorRandomNoHouse2 == 4){
 	colorRandomTypeHouse2 = "Spades";
 	}
-document.getElementById('houseSecondCard').src="images/house 0.png";
 		// check to see if house is satisfied with first 2 cards
 		if (houseCard1 + houseCard2 == 14 | houseCard1 + houseCard2 == 21) {
 			document.getElementById('houseSecondCard').src="images/"+ colorRandomTypeHouse2 + " " + houseCard2 +".png";
@@ -94,7 +92,6 @@ document.getElementById('houseSecondCard').src="images/house 0.png";
 					} else if (colorRandomNoHouse3 == 4){
 					colorRandomTypeHouse3 = "Spades";
 					}
-					document.getElementById('houseThirdCard').src="images/house 0.png";
 					// check to see if house is satisfied with first 2 cards
 					if (houseCard1 + houseCard2 + houseCard3 == 14 | houseCard1 + houseCard2 + houseCard3 == 21) {
 					document.getElementById('houseSecondCard').src="images/"+ colorRandomTypeHouse2 + " " + houseCard2 +".png";
@@ -116,9 +113,11 @@ document.getElementById('houseSecondCard').src="images/house 0.png";
 									} else if (colorRandomNoHouse4 == 4){
 									colorRandomTypeHouse4 = "Spades";
 									}
-									document.getElementById('houseFourthCard').src="images/house 0.png";
 									// check to see if house is satisfied with first 2 cards
 									if (houseCard1 + houseCard2 + houseCard3 + houseCard4 == 14 | houseCard1 + houseCard2 + houseCard3 + houseCard4 == 21) {
+									document.getElementById('houseFirstCard').src="images/"+ colorRandomTypeHouse1 + " " + houseCard1 +".png";
+									document.getElementById('houseSecondCard').src="images/"+ colorRandomTypeHouse2 + " " + houseCard2 +".png";
+									document.getElementById('houseThirdCard').src="images/"+ colorRandomTypeHouse3 + " " + houseCard3 +".png";
 									document.getElementById('houseFourthCard').src="images/"+ colorRandomTypeHouse4 + " " + houseCard4 +".png";
 									} else {
 									document.getElementById('houseFirstCard').src="images/"+ colorRandomTypeHouse1 + " " + houseCard1 +".png";
@@ -147,7 +146,6 @@ document.getElementById('houseSecondCard').src="images/house 0.png";
 												} else if (colorRandomNoHouse4 == 4){
 												colorRandomTypeHouse4 = "Spades";
 												}
-												document.getElementById('houseFourthCard').src="images/house 0.png";
 												// check to see if house is satisfied with first 2 cards
 												if (houseCard1 + houseCard2 + houseCard3 + houseCard4 == 14 | houseCard1 + houseCard2 + houseCard3 + houseCard4 == 21) {
 												document.getElementById('houseFirstCard').src="images/"+ colorRandomTypeHouse1 + " " + houseCard1 +".png";
@@ -201,11 +199,11 @@ document.getElementById('houseSecondCard').src="images/house 0.png";
 												} else if (colorRandomNoHouse3 == 4){
 												colorRandomTypeHouse3 = "Spades";
 												}
-												document.getElementById('houseFourthCard').src="images/house 0.png";
 												// check to see if house is satisfied with first 2 cards
 												if (houseCard1 + houseCard2 + houseCard3 == 14 | houseCard1 + houseCard2 + houseCard3  == 21) {
-												alert ("The House is on fire!!! Check out the cards of the House! You can still get a draw!");
 												document.getElementById('houseThirdCard').src="images/"+ colorRandomTypeHouse3 + " " + houseCard3 +".png";
+												document.getElementById('houseFirstCard').src="images/"+ colorRandomTypeHouse1 + " " + houseCard1 +".png";
+												document.getElementById('houseSecondCard').src="images/"+ colorRandomTypeHouse2 + " " + houseCard2 +".png";
 												} else {
 												document.getElementById('houseFirstCard').src="images/"+ colorRandomTypeHouse1 + " " + houseCard1 +".png";
 												document.getElementById('houseSecondCard').src="images/"+ colorRandomTypeHouse2 + " " + houseCard2 +".png";
