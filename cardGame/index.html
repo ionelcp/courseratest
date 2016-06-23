@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Cards game 14 - 21</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div class="container">
+<header>
+  <div class="jumbotron">
+<h1>Cards game 14 - 21</h1>
+<p>Created by Ionel Costel Popescu</p>
+</div>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="index.html">Home</a></li>
+      <li><a href="rules.html">Rules</a></li>
+      <li><a href="http://www.ionelcostel.eu#contact">Contact</a></li> 
+    </ul>
+  </div>
+</nav>
+</header>
+
+<main>
+	<div class="row">
+<button id="startgm" type="button" onclick="startGame()" class="text-center btn-default">Start Game</button>
+<div class="jumbotron col-sm-12 col-lg-12 col-md-12 col-xs-12 text-center" id="gameCommunication"> 
+<p id="communication"></p>
+<button id="newCard" type="button" onclick="newCard1()" class="text-center btn-success">Get Card</button>
+<button id="Stop" type="button" onclick="function(){startGameEvaluation();}" class="text-center btn-danger">Stop</button>
+<button id="playAgain" onclick="myFunction()" class="text-center btn-success">Clear table to play again</button>
+
+</div>
+		<h2>Player Cards</h2>
+		<div id="playerCard1" class="col-sm-3 col-lg-3 col-md-3 col-xs-3">
+			<img class="playerCard1" id="playerFirstCard" src="images/Clubs 0.png";/>
+
+		</div><!-- end of first element of row	-->
+
+		<div id="playerCard2" class="col-sm-3 col-lg-3 col-md-3 col-xs-3">
+			<img class="playerCard2" id="playerSecondCard" src="images/Clubs 0.png";/>
+
+		</div><!-- end of second element of row	-->
+
+		<div id="playerCard3" class="col-sm-3 col-lg-3 col-md-3 col-xs-3">
+			<img class="playerCard3" id="playerThirdCard" src="images/Clubs 0.png";/>
+		
+		</div><!-- end of third element of row	-->
+
+		<div id="playerCard4" class="col-sm-3 col-lg-3 col-md-3 col-xs-3">
+			<img class="playerCard4" id="playerFourthCard" src="images/Clubs 0.png";/>
+		
+		</div><!-- end of forth element of row	-->
+	</div> <!-- end of row	-->
+
+	<div class="row">
+			<h2>House Cards</h2>
+
+		<div id="houseCard1" class="col-sm-3 col-lg-3 col-md-3 col-xs-3">
+			<img class="houseCard1" id="houseFirstCard" src="images/Clubs 0.png";/>
+		
+		</div><!-- end of first element of row	-->
+
+		<div id="houseCard2" class="col-sm-3 col-lg-3 col-md-3 col-xs-3">
+			<img class="houseCard2" id="houseSecondCard" src="images/Clubs 0.png";/>
+		
+		</div><!-- end of second element of row	-->
+
+		<div id="houseCard3" class="col-sm-3 col-lg-3 col-md-3 col-xs-3">
+			<img class="houseCard3" id="houseThirdCard" src="images/Clubs 0.png";/>
+		
+		</div><!-- end of third element of row	-->
+
+		<div id="houseCard4" class="col-sm-3 col-lg-3 col-md-3 col-xs-3">
+			<img class="houseCard4" id="houseFourthCard" src="images/Clubs 0.png";/>
+		
+		</div><!-- end of forth element of row	-->
+	</div> <!-- end of row	-->
+</main>
+
+<footer class="text-center">Copyright &copy; 2016</footer>
+
+
+
+</div> <!-- end of container	-->
+
+</body>
+
+  <!-- jQuery (Bootstrap JS plugins depend on it) -->
+  <script src="js/jquery-2.1.4.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/script.js"></script>
+</html>

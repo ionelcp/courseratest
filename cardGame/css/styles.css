@@ -1,0 +1,94 @@
+body{
+	background: #006400;
+}
+
+footer {
+	background-color: #fff;
+	color: #006400;
+	margin-top: 20px;
+}
+.container {
+  
+  margin-top: 20px;
+}
+.jumbotron {
+	margin-top: 20px;
+}
+h2{
+	color: #fff;
+}
+.row {
+	margin-left: 20px;
+}
+
+button{
+	font-weight: bold;
+}
+
+#playerCard1, #playerCard2, #playerCard3, #playerCard4, #houseCard1, #houseCard2, #houseCard3, #houseCard4 {
+	background: #006400;
+	height: 300px;
+
+}
+#playerCard1 img, #playerCard2 img, #playerCard3 img, #playerCard4 img, #houseCard1 img, #houseCard2 img, #houseCard3 img, #houseCard4 img{ 
+
+	height: 300px; 
+width: 100%;
+}
+#gameCommunication {
+	display: none;
+}
+#playAgain {
+	display: none;
+}
+/********** Large devices only **********/
+@media (min-width: 1200px) {
+
+}
+
+/********** Medium devices only **********/
+@media (min-width: 992px) and (max-width: 1199px) {
+}
+
+/********** Small devices only **********/
+@media (min-width: 768px) and (max-width: 991px) {
+	#playerCard1, #playerCard2, #playerCard3, #playerCard4, #houseCard1, #houseCard2, #houseCard3, #houseCard4 {
+	background: #006400;
+	height: 200px;
+
+}
+#playerCard1 img, #playerCard2 img, #playerCard3 img, #playerCard4 img, #houseCard1 img, #houseCard2 img, #houseCard3 img, #houseCard4 img{ 
+
+	height: 200px; 
+width: 100%;
+}
+}
+
+/********** Extra small devices only **********/
+@media (max-width: 767px) {
+	#playerCard1, #playerCard2, #playerCard3, #playerCard4, #houseCard1, #houseCard2, #houseCard3, #houseCard4 {
+	background: #006400;
+	height: 150px;
+
+}
+#playerCard1 img, #playerCard2 img, #playerCard3 img, #playerCard4 img, #houseCard1 img, #houseCard2 img, #houseCard3 img, #houseCard4 img{ 
+
+	height: 150px; 
+width: 100%;
+}
+}
+
+/********** Super extra small devices Only :-) (e.g., iPhone 4) **********/
+@media (max-width: 479px) {
+#playerCard1, #playerCard2, #playerCard3, #playerCard4, #houseCard1, #houseCard2, #houseCard3, #houseCard4 {
+	background: #006400;
+	height: 100px;
+
+}
+#playerCard1 img, #playerCard2 img, #playerCard3 img, #playerCard4 img, #houseCard1 img, #houseCard2 img, #houseCard3 img, #houseCard4 img{ 
+
+	height: 100px; 
+width: 100%;
+}
+
+	}
