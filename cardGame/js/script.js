@@ -333,7 +333,7 @@ function newCard3 (){
 
 
 	// end of else if equal on next row
-} else if ((totalPlayer > 21 && totalHouse <= 21 )  | (totalPlayer <=21 && totalPlayer != 14 && totalHouse > totalPlayer)) {
+} else if ((totalPlayer > 21 && totalHouse <= 21 )  | (totalPlayer < 21 && totalPlayer != 14 && totalHouse > totalPlayer && totalHouse<= 21)  | (totalPlayer<21 && totalPlayer != 14 && totalHouse == 14)  ){
 		document.getElementById('newCard').style.display = "none";
 	document.getElementById('Stop').style.display = "none";
 		document.getElementById('communication').innerHTML = "You lose!";
@@ -369,7 +369,7 @@ function startGameEvaluation(){
 
 
 	// end of else if equal on next row
-} else if ((totalPlayer > 21 && totalHouse <= 21 )  | (totalPlayer <=21 && totalPlayer != 14 && totalHouse > totalPlayer)){
+} else if ((totalPlayer > 21 && totalHouse <= 21 )  | (totalPlayer < 21 && totalPlayer != 14 && totalHouse > totalPlayer && totalHouse<= 21)  | (totalPlayer<21 && totalPlayer != 14 && totalHouse == 14)  ){
 		document.getElementById('newCard').style.display = "none";
 	document.getElementById('Stop').style.display = "none";
 	document.getElementById('communication').innerHTML = "You lose!";
