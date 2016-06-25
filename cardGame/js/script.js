@@ -1,9 +1,34 @@
+var scorePlayer = 0;
+var scoreDraw = 0;
+var scoreHouse = 0;
+
+
+
 function startGame(){
 
 document.getElementById('startgm').style.display = "none";
 
 	document.getElementById('newCard').onclick = function (){newCard1();};
 	document.getElementById('Stop').onclick = function (){startGameEvaluation();};
+	document.getElementById('communication').innerHTML = "";
+
+document.getElementById('communication').style.display = "none";
+	document.getElementById('newCard').style.display = "inline-block";
+		document.getElementById('Stop').style.display = "inline-block";
+
+
+									document.getElementById('houseFirstCard').src="images/Clubs 0.png";
+									document.getElementById('houseSecondCard').src="images/Clubs 0.png";
+									document.getElementById('houseThirdCard').src="images/Clubs 0.png";
+									document.getElementById('houseFourthCard').src="images/Clubs 0.png";
+
+
+									document.getElementById('playerFirstCard').src="images/Clubs 0.png";
+									document.getElementById('playerSecondCard').src="images/Clubs 0.png";
+									document.getElementById('playerThirdCard').src="images/Clubs 0.png";
+									document.getElementById('playerFourthCard').src="images/Clubs 0.png";
+
+
 
 var houseCard1 = 0;
 var houseCard2 = 0;
@@ -17,8 +42,8 @@ var userCard4 = 0;
 // Giving first hand of cards for player and house
 
 // set variables for random card numbers
-var houseCard1 = Math.ceil(Math.random()*15); 
-var userCard1 = Math.ceil(Math.random()*15);
+ houseCard1 = Math.ceil(Math.random()*15); 
+ userCard1 = Math.ceil(Math.random()*15);
 
 //set variables for random player card type
 var colorRandomNoPlayer1 = Math.ceil(Math.random()*4);
@@ -57,7 +82,7 @@ document.getElementById('houseFirstCard').src="images/"+ colorRandomTypeHouse1 +
 
 } else if (houseCard1 != 14) {
 	// call the second card of the house
-	var houseCard2 = Math.ceil(Math.random()*15); 
+	 houseCard2 = Math.ceil(Math.random()*15); 
 	//set variables for random house card type
 
 	var colorRandomNoHouse2 = Math.ceil(Math.random()*4);
@@ -78,7 +103,7 @@ document.getElementById('houseFirstCard').src="images/"+ colorRandomTypeHouse1 +
 
 		} else if (houseCard1 + houseCard2 < 14) {
 					// call the third card of the house
-					var houseCard3 = Math.ceil(Math.random()*15); 
+					 houseCard3 = Math.ceil(Math.random()*15); 
 					//set variables for random house card type
 
 					var colorRandomNoHouse3 = Math.ceil(Math.random()*4);
@@ -99,7 +124,7 @@ document.getElementById('houseFirstCard').src="images/"+ colorRandomTypeHouse1 +
 					document.getElementById('houseThirdCard').src="images/"+ colorRandomTypeHouse3 + " " + houseCard3 +".png";
 					}  else if (houseCard1 + houseCard2 + houseCard3 < 14) {
 									// call the fourth card of the house
-									var houseCard4 = Math.ceil(Math.random()*15); 
+									 houseCard4 = Math.ceil(Math.random()*15); 
 									//set variables for random house card type
 
 									var colorRandomNoHouse4 = Math.ceil(Math.random()*4);
@@ -132,7 +157,7 @@ document.getElementById('houseFirstCard').src="images/"+ colorRandomTypeHouse1 +
 								var randomDecisionOfHouse = Math.ceil(Math.random()*3);
 									if (randomDecisionOfHouse == 1  | randomDecisionOfHouse == 2) {
 												// call the fourth card of the house
-												var houseCard4 = Math.ceil(Math.random()*15); 
+												 houseCard4 = Math.ceil(Math.random()*15); 
 												//set variables for random house card type
 
 												var colorRandomNoHouse4 = Math.ceil(Math.random()*4);
@@ -321,24 +346,35 @@ function newCard3 (){
 	if ((totalPlayer == 14 && totalHouse != 14 && totalHouse != 21) | (totalPlayer == 21   && totalHouse != 14 && totalHouse != 21) | (totalPlayer < 21 && totalPlayer > totalHouse  && totalHouse != 14)  |  (totalPlayer < 21 && totalHouse > 21)) {
 		document.getElementById('newCard').style.display = "none";
 	document.getElementById('Stop').style.display = "none";
-		document.getElementById('communication').innerHTML = "You win!";
-		document.getElementById('playAgain').style.display = "inline-block";
+			 scorePlayer++;
+		document.getElementById('startgm').style.display = "inline-block";
+		document.getElementById('communication').style.display = "inline-block";
+
+	document.getElementById('communication').innerHTML = "You win!";
+	document.getElementById('thescore').innerHTML = scorePlayer + " Player - " + " House " + scoreHouse;
 
 // end of if winner on next row
 } else if ((totalPlayer == totalHouse)  |  (totalPlayer == 14 && totalHouse == 21)  | (totalPlayer == 21 && totalHouse == 14) | (totalPlayer > 21 && totalHouse >21)) {
 		document.getElementById('newCard').style.display = "none";
 	document.getElementById('Stop').style.display = "none";
-		document.getElementById('communication').innerHTML = "We have a draw!";
-		document.getElementById('playAgain').style.display = "inline-block";
+	 scoreDraw++;
+		document.getElementById('startgm').style.display = "inline-block";
+		document.getElementById('communication').style.display = "inline-block";
+
+	document.getElementById('communication').innerHTML = "We have a draw!";
+	document.getElementById('thescore').innerHTML = scorePlayer + " Player - " + " House " + scoreHouse;
 
 
 	// end of else if equal on next row
 } else if ((totalPlayer > 21 && totalHouse <= 21 )  | (totalPlayer < 21 && totalPlayer != 14 && totalHouse > totalPlayer && totalHouse<= 21)  | (totalPlayer<21 && totalPlayer != 14 && totalHouse == 14)  ){
 		document.getElementById('newCard').style.display = "none";
 	document.getElementById('Stop').style.display = "none";
-		document.getElementById('communication').innerHTML = "You lose!";
+	 scoreHouse++;
+		document.getElementById('startgm').style.display = "inline-block";
+		document.getElementById('communication').style.display = "inline-block";
 
-		document.getElementById('playAgain').style.display = "inline-block";
+	document.getElementById('communication').innerHTML = "You lose!";
+	document.getElementById('thescore').innerHTML = scorePlayer + " Player - " + " House " + scoreHouse;
 
 	//end of you lose
 } 
@@ -357,23 +393,35 @@ function startGameEvaluation(){
 	if ((totalPlayer == 14 && totalHouse != 14 && totalHouse != 21) | (totalPlayer == 21   && totalHouse != 14 && totalHouse != 21) | (totalPlayer < 21 && totalPlayer > totalHouse && totalHouse != 14)  |  (totalPlayer < 21 && totalHouse > 21)) {
 		document.getElementById('newCard').style.display = "none";
 	document.getElementById('Stop').style.display = "none";
+			 scorePlayer++;
+			document.getElementById('startgm').style.display = "inline-block";
+		document.getElementById('communication').style.display = "inline-block";
+
 	document.getElementById('communication').innerHTML = "You win!";
-			document.getElementById('playAgain').style.display = "inline-block";
+	document.getElementById('thescore').innerHTML = scorePlayer + " Player - " + " House " + scoreHouse;
 
 // end of if winner on next row
 } else if ((totalPlayer == totalHouse)  |  (totalPlayer == 14 && totalHouse == 21)  | (totalPlayer == 21 && totalHouse == 14) | (totalPlayer > 21 && totalHouse >21)) {
 		document.getElementById('newCard').style.display = "none";
 	document.getElementById('Stop').style.display = "none";
+	 scoreDraw++;
+			document.getElementById('startgm').style.display = "inline-block";
+		document.getElementById('communication').style.display = "inline-block";
+
 	document.getElementById('communication').innerHTML = "We have a draw!";
-			document.getElementById('playAgain').style.display = "inline-block";
+	document.getElementById('thescore').innerHTML = scorePlayer + " Player - " + " House " + scoreHouse;
 
 
 	// end of else if equal on next row
-} else if ((totalPlayer > 21 && totalHouse <= 21 )  | (totalPlayer < 21 && totalPlayer != 14 && totalHouse > totalPlayer && totalHouse<= 21)  | (totalPlayer<21 && totalPlayer != 14 && totalHouse == 14)  ){
+} else if ((totalPlayer > 21 && totalHouse <= 21 )  | (totalPlayer < 21 && totalPlayer != 14  && totalHouse <= 21 && totalHouse > totalPlayer)  | (totalPlayer<21 && totalPlayer != 14 && totalHouse == 14)  ){
 		document.getElementById('newCard').style.display = "none";
 	document.getElementById('Stop').style.display = "none";
+	scoreHouse++;
+		document.getElementById('startgm').style.display = "inline-block";
+		document.getElementById('communication').style.display = "inline-block";
+
 	document.getElementById('communication').innerHTML = "You lose!";
-		document.getElementById('playAgain').style.display = "inline-block";
+	document.getElementById('thescore').innerHTML = scorePlayer + " Player - " + " House " + scoreHouse;
 
 
 	//end of you lose
@@ -390,3 +438,4 @@ function startGameEvaluation(){
 function myFunction() {
     location.reload();
 }
+
