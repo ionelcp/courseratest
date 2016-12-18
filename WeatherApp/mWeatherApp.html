@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<style type="text/css">
+body{
+	 -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  }
+  .container{
+  	background: rgba(255,255,255,0.7);
+  	border-radius: 5px;
+  }
+
+h1{
+	font-size: 70%;
+}
+.temp, .temp2 {
+	color: red;
+}
+.city, .weather{
+	color:blue;
+}
+
+</style>
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script type="text/javascript">
+$(document).ready(function(){
+	$('.temp2').hide();
+});
+	function changetoF(){
+	$('.temp').hide();
+	$('.temp2').show();
+	 document.getElementById('change').setAttribute("onclick", "changetoT()");
+}
+function changetoT(){
+	$('.temp').show();
+	$('.temp2').hide();
+	 document.getElementById('change').setAttribute("onclick", "changetoF()");
+}
+</script>
+</head>
+<body>
+<div class="container">
+<div class="row">
+<div class="col-md-12">
+<h1 class="text-center">Weather app showing weather at your current location. Free Code Camp assignment. Openweathermap API</h1>
+<div id = "data">
+  
+</div>
+
+<div id="resultLocation"></div>
+<div id="result"></div>
+
+<h2 class="city text-center"></h2>
+<div class="text-center"><h2 class="temp"></h2> <button id="change" onclick="changetoF()" class="btn btn-default">change unit</button></div>
+<h2 class="temp2 text-center"></h2>
+<h2 class="weather text-center"></h2>
+
+</div>
+</div>
+</div>
+<footer class="text-center">Page created by <a href="http://www.ionelcostel.eu/"><b>Ionel Costel Popescu</b></a></footer>
+<script type="text/javascript">
+	
+
+  if(navigator.geolocation){
+    navigator.geolocation.getCurrentPosition(function(position){
+    	lat = position.coords.latitude;
+    	long = position.coords.longitude;
+   
+var jsonUrl = "http://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+long+"&appid=8ab432124bd7f9ced7d111291055e73a";
+
+$.getJSON(jsonUrl, function(data) {
+
+  
+
+$('.city').html(data.name + ", " + data.sys.country);
+var kelvin  = data.main.temp;
+var toCelsius = kelvin - 273.15;
+var celsius  = toCelsius.toFixed();
+var toFahrenheit = (kelvin - 273.15)* 1.8000 + 32.00;
+var fahrenheit = toFahrenheit.toFixed();
+$('.temp').html(celsius +" &#x2103;");
+$('.temp2').html(fahrenheit +" &#x2109;");
+$('.weather').html(data.weather[0].description);
+
+var description = data.weather[0].description;
+
+if(description=="clear sky"){
+document.body.style.backgroundImage = "url('imgs/clear sky.jpg')";
+
+
+} else if(description=="few clouds"){
+
+document.body.style.backgroundImage = "url('imgs/few clouds.jpg')";
+}else if(description=="scattered clouds"){
+	document.body.style.backgroundImage = "url('imgs/scattered clouds.jpg')";
+}else if(description=="broken clouds"){
+	document.body.style.backgroundImage = "url('imgs/broken clouds.jpg')";
+}else if(description=="shower rain"){
+	document.body.style.backgroundImage = "url('imgs/shower rain.jpg')";
+}else if(description=="rain"){
+	document.body.style.backgroundImage = "url('imgs/rain.jpg')";
+}else if(description=="thunderstorm"){
+	document.body.style.backgroundImage = "url('imgs/thunderstorm.jpg')";
+}else if(description=="snow"){
+	document.body.style.backgroundImage = "url('imgs/snow.jpg')";
+}else if(description=="mist"){
+	document.body.style.backgroundImage = "url('imgs/mist.jpg')";
+}
+
+ 
+
+
+
+
+}, "json");
+
+
+
+
+
+
+
+
+
+
+    });
+  }
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
